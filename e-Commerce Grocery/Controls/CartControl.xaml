@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="e_Commerce_Grocery.Controls.CartControl"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="this">
+    <Border
+        x:Name="container"
+        Margin="5"
+        Padding="30,10"
+        BackgroundColor="{StaticResource Mid}"
+        BindingContext="{x:Reference this}"
+        HorizontalOptions="End"
+        StrokeShape="RoundRectangle 40"
+        StrokeThickness="0"
+        VerticalOptions="End">
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </Border.GestureRecognizers>
+        <!--<Border.Triggers>
+            <DataTrigger TargetType="Border"
+                         Binding="{Binding Count}"
+                         Value="0">
+                <Setter Property="IsVisible" Value="False"/>
+            </DataTrigger>
+        </Border.Triggers>-->
+        <Border.Shadow>
+            <Shadow
+                Brush="{StaticResource Primary}"
+                Opacity="10"
+                Radius="10"
+                Offset="1, 1" />
+        </Border.Shadow>
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            Spacing="10"
+            VerticalOptions="Center">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="25"
+                Source="bx_cart"
+                WidthRequest="25">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+            </Image>
+            <Label
+                FontAttributes="Bold"
+                FontSize="25"
+                Text="{Binding Count}"
+                TextColor="White" />
+        </HorizontalStackLayout>
+    </Border>
+</ContentView>

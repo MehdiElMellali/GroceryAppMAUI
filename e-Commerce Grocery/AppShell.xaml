@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="e_Commerce_Grocery.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:e_Commerce_Grocery"
+    xmlns:pages="clr-namespace:e_Commerce_Grocery.Pages"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.BackgroundColor="{StaticResource Mid}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarBackgroundColor="{StaticResource Mid}"
+    Shell.TabBarForegroundColor="{StaticResource White}"
+    Shell.TabBarTitleColor="{StaticResource White}">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource Primary}" />
+    </Shell.Behaviors>
+
+    <!--<ShellContent
+        Title="FruitVeg Basket"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Icon="bx_home"
+            Route="HomePage" />
+        <ShellContent
+            Title="Categories"
+            ContentTemplate="{DataTemplate pages:CategoriesPage}"
+            Icon="bx_category"
+            Route="CategoriesPage" />
+        <ShellContent
+            Title="Orders"
+            ContentTemplate="{DataTemplate pages:OrdersPage}"
+            Icon="bx_box"
+            Route="OrdersPage" />
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Icon="bx_user"
+            Route="ProfilePage" />
+        <ShellContent
+            Title="Help"
+            ContentTemplate="{DataTemplate pages:HelpPage}"
+            Icon="bx_help_circle"
+            Route="HelpPage" />
+    </TabBar>
+
+</Shell>
