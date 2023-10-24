@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using e_Commerce_Grocery.Models;
+using e_Commerce_Grocery.Pages;
 using e_Commerce_Grocery.Services;
 using Grocery.Shared.Dto;
 using System;
@@ -114,6 +115,20 @@ namespace e_Commerce_Grocery.ViewModels
                 }
                 CartCount = _cartViewModel.Count;
             }
+        }
+
+
+        [RelayCommand]
+        private async Task GoToCategoryProductsPage(Category category)
+        {
+            var parameter = new Dictionary<string, object>
+            {
+                [nameof(CategoryProductsViewModel.SelectedCategory)] = category
+            };
+
+            //Navigate With params
+            await Shell.Current.GoToAsync(nameof(CategoryProductsPage), animate: true, parameter);
+
         }
 
         public void Dispose()

@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:e_Commerce_Grocery.Controls"
     xmlns:converters="clr-namespace:e_Commerce_Grocery.Converter"
     xmlns:models="clr-namespace:e_Commerce_Grocery.Models"
+    xmlns:vm="clr-namespace:e_Commerce_Grocery.ViewModels"
     Title="HomePage"
     Shell.NavBarIsVisible="False">
     <ContentPage.Resources>
@@ -131,6 +132,9 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="models:Category">
                                 <Border StrokeShape="RoundRectangle 5" StrokeThickness="0">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:HomePageViewModel}}, Path=GoToCategoryProductsPageCommand}" CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
                                     <Grid>
                                         <Image
                                             Aspect="AspectFill"

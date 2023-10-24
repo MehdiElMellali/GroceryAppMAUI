@@ -17,5 +17,11 @@ namespace e_Commerce_Grocery.Services
             var response = await HttpClient.GetAsync("/popular-products");
             return await HandleApiResponseAsync(response, Enumerable.Empty<ProductDto>());
         }
+
+        public async Task<IEnumerable<ProductDto>> GetCategoryProductsAsync(short categoryId)
+        {
+            var response = await HttpClient.GetAsync($"/categories/{categoryId}/products");
+            return await HandleApiResponseAsync(response, Enumerable.Empty<ProductDto>());
+        }
     }
 }

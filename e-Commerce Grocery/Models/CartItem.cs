@@ -13,7 +13,7 @@ namespace e_Commerce_Grocery.Models
         public decimal Price { get; set; }
 
         [ObservableProperty, NotifyPropertyChangedFor(nameof(Amount))]
-        public int _quantity;
+        private int _quantity;
 
         public decimal Amount => Price * Quantity;
 

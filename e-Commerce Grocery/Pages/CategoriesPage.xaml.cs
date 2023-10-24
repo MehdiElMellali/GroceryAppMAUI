@@ -1,6 +1,8 @@
 using e_Commerce_Grocery.Models;
 using e_Commerce_Grocery.Services;
+using e_Commerce_Grocery.ViewModels;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Metrics;
 
 namespace e_Commerce_Grocery.Pages;
 
@@ -32,7 +34,13 @@ public partial class CategoriesPage : ContentPage
     {
         if (e.CurrentSelection?[0] is Category category)
         {
-            await Shell.Current.GoToAsync(nameof(CategoryProductsPage));
+            var parameter = new Dictionary<string, object>
+            {
+                [nameof(CategoryProductsViewModel.SelectedCategory)] = category
+            };
+
+            //Navigate With params
+            await Shell.Current.GoToAsync(nameof(CategoryProductsPage),animate:true,parameter);
         }
     }
 }
